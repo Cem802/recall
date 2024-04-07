@@ -1,0 +1,43 @@
+import React, {useState} from 'react';
+import {View, TextInput, TouchableOpacity} from 'react-native';
+import {styles} from './ChatInput.styles';
+import Icon from 'react-native-vector-icons/AntDesign';
+
+const ChatInput = ({
+  onSendMessage,
+}: {
+  onSendMessage: (message: string) => void;
+}) => {
+  const [height, setHeight] = useState(0);
+  const [input, setInput] = useState('');
+
+  return (
+    <View style={styles.container}>
+      <TextInput
+        placeholder="Type a message"
+        placeholderTextColor="#787A91"
+        style={[styles.input, {height: Math.max(40, height)}]}
+        multiline={true}
+        onContentSizeChange={event => {
+          if (event.nativeEvent.contentSize.height < 501) {
+            setHeight(event.nativeEvent.contentSize.height);
+          } else {
+            setHeight(500);
+          }
+        }}
+        value={input}
+        onChangeText={setInput}
+      />
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          onSendMessage(input);
+          setInput('');
+        }}>
+        <Icon name="arrowup" size={20} color="#fff" />
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+export default ChatInput;
