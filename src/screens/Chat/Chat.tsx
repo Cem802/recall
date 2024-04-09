@@ -5,9 +5,7 @@ import ChatInput from '../../components/ChatInput/ChatInput';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 const Chat = ({navigation}: {navigation: any}) => {
-  const [messages, setMessages] = useState<
-    Array<{id: number; user_id: number; content: string}>
-  >([]);
+  const [messages, setMessages] = useState<Document[]>([]);
 
   useLayoutEffect(() => {
     navigation.setOptions({

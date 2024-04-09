@@ -7,9 +7,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 const Recall = ({navigation}: {navigation: any}) => {
   const [search, setSearch] = useState('');
   const [input, setInput] = useState('');
-  const [docs, setDocs] = useState<
-    {id: Number; user_id: number; content: string; topic_number: number}[]
-  >([]);
+  const [docs, setDocs] = useState<Document[]>([]);
 
   useLayoutEffect(() => {
     navigation.setOptions({

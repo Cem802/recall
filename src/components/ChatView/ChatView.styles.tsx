@@ -9,9 +9,9 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'flex-start',
     gap: 5,
-    marginBottom: 20,
+    marginTop: 20,
   },
-  fromcontainer: {
+  labelcontainer: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -25,15 +25,14 @@ export const styles = StyleSheet.create({
     borderRadius: 50,
     marginRight: 10,
   },
-  from: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
+  label: {
+    color: '#7468F3',
+    fontSize: 14,
   },
   message: {
     color: '#fff',
     fontSize: 16,
-    marginLeft: 50,
+    marginLeft: 40,
   },
   emptyContainer: {
     display: 'flex',

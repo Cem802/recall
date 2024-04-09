@@ -3,13 +3,7 @@ import React from 'react';
 import {FlatList} from 'react-native-gesture-handler';
 import {StyleSheet} from 'react-native';
 
-const Summary = ({
-  input,
-  list,
-}: {
-  input: string;
-  list: {id: Number; user_id: number; content: string; topic_number: number}[];
-}) => {
+const Summary = ({input, list}: {input: string; list: Document[]}) => {
   return (
     <View style={styles.container}>
       {list.length > 0 ? (
@@ -27,7 +21,9 @@ const Summary = ({
           />
         </>
       ) : (
-        <Text style={styles.title}>What thoughts do you want to recall?</Text>
+        <Text style={styles.emptypagetitle}>
+          What thoughts do you want to recall?
+        </Text>
       )}
     </View>
   );
@@ -47,6 +43,13 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     margin: 10,
+  },
+  emptypagetitle: {
+    color: '#7468F3',
+    fontSize: 28,
+    fontWeight: 'bold',
+    margin: 10,
+    textAlign: 'center',
   },
 });
 
