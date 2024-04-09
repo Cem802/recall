@@ -4,9 +4,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {getHeaderTitle} from '@react-navigation/elements';
 import Chat from './src/screens/Chat/Chat';
-import Home from './src/screens/Home/Home';
 import Header from './src/components/Header/Header';
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
+import Recall from './src/screens/Recall/Recall';
 
 const Drawer = createDrawerNavigator();
 
@@ -20,8 +20,15 @@ const setHeader = ({
   options: any;
 }) => {
   const title = getHeaderTitle(options, route.name);
+  const HeaderRight = options.headerRight;
 
-  return <Header title={title} openDrawer={() => navigation.openDrawer()} />;
+  return (
+    <Header
+      title={title}
+      openDrawer={() => navigation.openDrawer()}
+      HeaderRight={HeaderRight}
+    />
+  );
 };
 
 function App(): React.JSX.Element {
@@ -30,7 +37,7 @@ function App(): React.JSX.Element {
       <StatusBar />
       <NavigationContainer>
         <Drawer.Navigator
-          initialRouteName="Recall"
+          initialRouteName="Thoughts"
           screenOptions={{
             header: setHeader,
             drawerStyle: {
@@ -39,8 +46,8 @@ function App(): React.JSX.Element {
             drawerInactiveTintColor: 'grey',
             drawerActiveTintColor: '#7468F3',
           }}>
-          <Drawer.Screen name="Recall" component={Chat} />
-          <Drawer.Screen name="Home" component={Home} />
+          <Drawer.Screen name="Thoughts" component={Chat} />
+          <Drawer.Screen name="Recall" component={Recall} />
         </Drawer.Navigator>
       </NavigationContainer>
     </SafeAreaView>

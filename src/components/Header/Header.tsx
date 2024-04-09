@@ -6,11 +6,11 @@ import Icon from 'react-native-vector-icons/AntDesign';
 const Header = ({
   title,
   openDrawer,
-  onNewChat,
+  HeaderRight,
 }: {
   title: string;
   openDrawer: () => void;
-  onNewChat?: () => void;
+  HeaderRight?: () => React.JSX.Element;
 }) => {
   return (
     <View style={styles.container}>
@@ -23,14 +23,7 @@ const Header = ({
         />
       </View>
       <Text style={styles.name}>{title}</Text>
-      <View>
-        <Icon
-          name="pluscircleo"
-          size={20}
-          color="#fff"
-          onPress={() => onNewChat && onNewChat()}
-        />
-      </View>
+      <View>{HeaderRight && <HeaderRight />}</View>
     </View>
   );
 };

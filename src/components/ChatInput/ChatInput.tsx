@@ -4,9 +4,13 @@ import {styles} from './ChatInput.styles';
 import Icon from 'react-native-vector-icons/AntDesign';
 
 const ChatInput = ({
+  placeholder,
   onSendMessage,
+  buttonDown,
 }: {
+  placeholder: string;
   onSendMessage: (message: string) => void;
+  buttonDown?: boolean;
 }) => {
   const [height, setHeight] = useState(0);
   const [input, setInput] = useState('');
@@ -14,7 +18,7 @@ const ChatInput = ({
   return (
     <View style={styles.container}>
       <TextInput
-        placeholder="Type a message"
+        placeholder={placeholder}
         placeholderTextColor="#787A91"
         style={[styles.input, {height: Math.max(40, height)}]}
         multiline={true}
@@ -34,7 +38,11 @@ const ChatInput = ({
           onSendMessage(input);
           setInput('');
         }}>
-        <Icon name="arrowup" size={20} color="#fff" />
+        <Icon
+          name={buttonDown ? 'arrowdown' : 'arrowup'}
+          size={20}
+          color="#fff"
+        />
       </TouchableOpacity>
     </View>
   );

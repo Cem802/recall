@@ -7,7 +7,7 @@ import MCIIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 const ChatView = ({
   messages,
 }: {
-  messages: {id: number; from: string; text: string}[];
+  messages: {id: number; user_id: number; content: string}[];
 }) => {
   return messages.length > 0 ? (
     <FlatList
@@ -21,7 +21,7 @@ const ChatView = ({
             </View>
             <Text style={styles.from}>You</Text>
           </View>
-          <Text style={styles.message}>{item.text}</Text>
+          <Text style={styles.message}>{item.content}</Text>
         </View>
       )}
       style={styles.messageslist}
